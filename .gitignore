@@ -1,0 +1,10 @@
+# notebook used for proofing
+/notebooks
+
+# resource
+/resources
+
+# skip large text messages (scv files)
+/data/01_raw/stocktwits/BTC_stocktwits.csv
+
+.idea
