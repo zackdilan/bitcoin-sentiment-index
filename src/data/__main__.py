@@ -23,6 +23,9 @@ if __name__ == '__main__':
     # Get StockTwits messages
     start = '2014-11-28 00:00:00'
     end = '2021-05-10 00:00:00'
+    start_unix = ts_to_unix(start)
+    end_unix = ts_to_unix(end)
+    '''
     # st_cashtag = pd.read_csv('data/00_external/symbols.csv', header=None)[1]
     # symbols = st_cashtag[st_cashtag.str.endswith('.X')].to_list()
     symbol = 'BTC.X'  # cash tag for Bitcoin
@@ -63,6 +66,7 @@ if __name__ == '__main__':
                                     file_name=f'data/02_processed/indirect'
                                               f'/bitcoin_trade_volume.csv')
 
+   ''' 
     # Get daily Google Trends
     others.get_google_trends('bitcoin', start_unix, end_unix,
                              file_name=f'data/02_processed/indirect'

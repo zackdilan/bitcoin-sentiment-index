@@ -6,5 +6,15 @@ resources
 
 # skip large text messages (scv files)
 data/01_raw/stocktwits/BTC_stocktwits.csv
+data/01_raw/reddit/comments_Bitcoin.csv
+data/01_raw/reddit/submissions_Bitcoin.csv
 
+# Environments
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
 .idea

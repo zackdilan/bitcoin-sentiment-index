@@ -37,7 +37,6 @@ def get_tweets(symbol, start, end, file_name):
         None
 
     """
-    #print("Hello")
     print(f"Getting messages with cashtags {symbol}...")
     fields = ['symbol', 'message', 'sentiment', 'datetime', 'user',
               'message_id']
@@ -47,10 +46,10 @@ def get_tweets(symbol, start, end, file_name):
     access_token = ['',
                     #'access_token=32a3552d31b92be5d2a3sd282ca3a864f96e95818&',
                     'access_token=44ae93a5279092f7804a0ee04753252cbf2ddfee&',
-                    'access_token=990183ef04060336a46a80aa287f774a9d604f9c&']
-                    #'access_token=3d28ce2f84763ce8355fa5c73522947d75f6e894',
-                    #'access_token=23208869136d4a135d7ae3f12babfc84afbf8df1',
-                    #'access_token=db6053d8a0af4161a2bbf88b34bf984e4ff3f758']
+                    'access_token=990183ef04060336a46a80aa287f774a9d604f9c&',
+                    'access_token=3d28ce2f84763ce8355fa5c73522947d75f6e894',
+                    'access_token=23208869136d4a135d7ae3f12babfc84afbf8df1',
+                    'access_token=db6053d8a0af4161a2bbf88b34bf984e4ff3f758']
 
     file = open(file_name, 'a', newline='', encoding='utf-8')
 
@@ -85,19 +84,22 @@ def get_tweets(symbol, start, end, file_name):
         try:
             response = requests.get(stocktwit_url)
             response.raise_for_status()
+
         except HTTPError as http_err:
-            time_left = int(response.headers['X-RateLimit-Reset']) - int(
-                time.time())
-            print(
-                f"REQUEST IP RATE LIMITED FOR "
-                f"{time_left} seconds."
-            )
+            # time_left = int(response.headers['X-RateLimit-Reset']) - int(
+            #     time.time())
+            # print(
+            #     f"REQUEST IP RATE LIMITED FOR "
+            #     f"{time_left} seconds."
+            # )
+
             response = None
         except Exception as err:
             print(f'Error occurred: {err}')
             response = None
 
         if response is not None:
+
 
             # if response.status_code == 429:
             #     time_left = int(response.headers['X-RateLimit-Reset']) - int(
@@ -108,6 +110,7 @@ def get_tweets(symbol, start, end, file_name):
             #     )
 
             if not response.status_code == 200:
+                print("*********here*******");
                 stocktwit_url = (
                     f"{base_url}{symbol}.json?{access_token[token]}max="
                     f"{str(last_message_id)}")
