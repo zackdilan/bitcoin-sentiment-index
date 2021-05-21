@@ -9,14 +9,14 @@ crypto-specific lexicon created by Chen et al. (2019).
 import nltk
 import pandas as pd
 
-sent_lexicon = pd.read_csv('data/00_external/crypto_lexicon.csv')
+#sent_lexicon = pd.read_csv('data/00_external/crypto_lexicon.csv')
+sent_lexicon = pd.read_csv('/home/robin/work_root/git/twiced_official/bitcoin-sentiment-index/data/00_external/crypto_lexicon.csv')
 sent_score = sent_lexicon[['keyword', 'sw']]
 
 unigram_score = sent_score[sent_score['keyword'].apply(
     lambda text: len(text.split())) == 1]
 
-bigram_score = sent_score[sent_score['keyword'].apply(
-    lambda text: len(text.split())) == 2]
+bigram_score = sent_score[sent_score['keyword'].apply(lambda text: len(text.split())) == 2]
 
 pd.options.mode.chained_assignment = None
 bigram_score['keyword'] = bigram_score['keyword'].apply(

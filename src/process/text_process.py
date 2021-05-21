@@ -25,12 +25,16 @@ linktag_regex = r'https?://(www\.)?(\w+)(\.\w+)/?'
 usertag_regex = r'@\w+'
 
 # Remove stopwords
-stops = pd.read_csv('data/00_external/stopwords.csv', header=None)[0].to_list()
+# stops = pd.read_csv('data/00_external/stopwords.csv', header=None)[0].to_list()
+stops = pd.read_csv('/home/robin/work_root/git/twiced_official/bitcoin-sentiment-index/data/00_external/stopwords.csv',
+                    header=None)[0].to_list()
 stop_set = '|'.join(stops)
 stop_regex = rf"\b({stop_set})\s"
 
 # Negative words
-negs = pd.read_csv('data/00_external/negative.csv', header=None)[0].to_list()
+# negs = pd.read_csv('data/00_external/negative.csv', header=None)[0].to_list()
+negs = pd.read_csv('/home/robin/work_root/git/twiced_official/bitcoin-sentiment-index/data/00_external/negative.csv',
+                   header=None)[0].to_list()
 neg_set = '|'.join(negs)
 negtag_regex = rf"({neg_set})\s(\w?)"
 

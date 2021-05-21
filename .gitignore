@@ -9,6 +9,8 @@ data/01_raw/stocktwits/BTC_stocktwits.csv
 data/01_raw/reddit/comments_Bitcoin.csv
 data/01_raw/reddit/submissions_Bitcoin.csv
 
+
+
 # Environments
 venv/
 
