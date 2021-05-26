@@ -110,7 +110,7 @@ def get_tweets(symbol, start, end, file_name):
             #     )
 
             if not response.status_code == 200:
-                print("*********here*******");
+
                 stocktwit_url = (
                     f"{base_url}{symbol}.json?{access_token[token]}max="
                     f"{str(last_message_id)}")

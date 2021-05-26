@@ -9,7 +9,7 @@ from .text_process import text_process
 if __name__ == '__main__':
     warnings.simplefilter(action='ignore', category=FutureWarning)
     warnings.filterwarnings(action='ignore', category=UserWarning)
-    '''
+
     
     # 1. StockTwits Tweets
     stocktwits = pd.read_csv("data/01_raw/stocktwits/BTC_stocktwits.csv", index_col=0)
@@ -59,7 +59,7 @@ if __name__ == '__main__':
         "data/02_processed/direct/reddit_submissions_sentiment.csv")
     reddit_sub_vol.to_csv(
         "data/02_processed/direct/reddit_submissions_volume.csv")
-    '''
+
 
     # 3. Reddit Comments Processing #
     reddit_com = pd.read_csv("data/01_raw/reddit/comments_Bitcoin.csv", index_col=0)
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     print("text process done on reddit comments")
     print("writing it to a csv file")
     reddit_com.to_csv("data/02_processed/direct/reddit_comments_processed_new.csv", line_terminator='\r\n')
-    '''
+
     # Compute sentiment
     reddit_com = pd.read_csv("data/02_processed/direct/reddit_comments_processed.csv", error_bad_lines=False)
     reddit_com['CL sentiment'] = reddit_com['processed'].apply(sentiment)
@@ -97,4 +97,4 @@ if __name__ == '__main__':
         "data/02_processed/direct/reddit_comments_sentiment.csv")
     reddit_com_vol.to_csv(
         "data/02_processed/direct/reddit_comments_volume.csv")
-    '''
+
