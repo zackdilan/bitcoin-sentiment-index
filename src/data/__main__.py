@@ -21,8 +21,8 @@ import argparse
 
 if __name__ == '__main__':
     # Get StockTwits messages
-    start = '2014-11-28 00:00:00'
-    end = '2021-05-10 00:00:00'
+    start = '2021-05-10 00:00:00'
+    end = '2021-05-26 00:00:00'
     start_unix = ts_to_unix(start)
     end_unix = ts_to_unix(end)
 
@@ -65,7 +65,6 @@ if __name__ == '__main__':
     others.get_bitcoin_trade_volume(days=utils.no_days(start, end),
                                     file_name=f'data/02_processed/indirect'
                                               f'/bitcoin_trade_volume.csv')
-
 
     # Get daily Google Trends
     others.get_google_trends('bitcoin', start_unix, end_unix,

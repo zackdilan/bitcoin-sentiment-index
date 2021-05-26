@@ -17,7 +17,7 @@ if __name__ == '__main__':
     stocktwits['date'] = pd.to_datetime(stocktwits['datetime']).dt.to_period(
         "D")
     # Text process
-    stocktwits['processed'] = stocktwits['message'].apply(text_reddit_sub.dropna(subset=['title'], inplace=True)process)
+    stocktwits['processed'] = stocktwits['message'].apply(text_process)
     # Compute sentiment
     stocktwits['CL sentiment'] = stocktwits['processed'].apply(sentiment)
     # Compute average sentiment of each day
