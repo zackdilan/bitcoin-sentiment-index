@@ -4,10 +4,12 @@ notebooks
 # resource
 resources
 
-# skip large text messages (scv files)
+# skip large text messages (csv files)
 data/01_raw/stocktwits/BTC_stocktwits.csv
 data/01_raw/reddit/comments_Bitcoin.csv
 data/01_raw/reddit/submissions_Bitcoin.csv
+
+
 
 # Environments
 venv/

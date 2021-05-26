@@ -2,20 +2,22 @@ import warnings
 
 import pandas as pd
 
-#from . import gather_data
+# from . import gather_data
 from .sentiment_score import sentiment
 from .text_process import text_process
 
 if __name__ == '__main__':
     warnings.simplefilter(action='ignore', category=FutureWarning)
     warnings.filterwarnings(action='ignore', category=UserWarning)
+    '''
+    
     # 1. StockTwits Tweets
     stocktwits = pd.read_csv("data/01_raw/stocktwits/BTC_stocktwits.csv", index_col=0)
-    # Convert date in RFC3339 format to pd.Period (freq = 'D')
+    #     # Convert date in RFC3format to pd.Period (freq = 'D')
     stocktwits['date'] = pd.to_datetime(stocktwits['datetime']).dt.to_period(
         "D")
     # Text process
-    stocktwits['processed'] = stocktwits['message'].apply(text_process)
+    stocktwits['processed'] = stocktwits['message'].apply(text_reddit_sub.dropna(subset=['title'], inplace=True)process)
     # Compute sentiment
     stocktwits['CL sentiment'] = stocktwits['processed'].apply(sentiment)
     # Compute average sentiment of each day
@@ -29,9 +31,9 @@ if __name__ == '__main__':
     # Export
     stocktwits_sent.to_csv("data/02_processed/direct/stocktwits_sentiment.csv")
     stocktwits_volume.to_csv("data/02_processed/direct/stocktwits_volume.csv")
-
+    
     # 2. Reddit Submissions Processing #
-    reddit_sub = pd.read_csv("data/01_raw/reddit/comments_Bitcoin.csv", index_col=0)
+    reddit_sub = pd.read_csv("data/01_raw/reddit/submissions_Bitcoin.csv")
     # Convert date in unix format to pd.Period (freq = 'D')
     reddit_sub['date'] = pd.to_datetime(reddit_sub['created_utc'],
                                         unit='s').dt.to_period("D")
@@ -57,9 +59,10 @@ if __name__ == '__main__':
         "data/02_processed/direct/reddit_submissions_sentiment.csv")
     reddit_sub_vol.to_csv(
         "data/02_processed/direct/reddit_submissions_volume.csv")
+    '''
 
     # 3. Reddit Comments Processing #
-    reddit_com = pd.read_csv("data/01_raw/reddit/submissions_Bitcoin.csv", index_col=0)
+    reddit_com = pd.read_csv("data/01_raw/reddit/comments_Bitcoin.csv", index_col=0)
     # Convert date in unix format to pd.Period (freq = 'D')
     reddit_com['date'] = pd.to_datetime(reddit_com['created_utc'],
                                         unit='s').dt.to_period("D")
@@ -69,12 +72,20 @@ if __name__ == '__main__':
     index_removed = reddit_com[reddit_com['content'] == '[removed]'].index
     reddit_com.drop(index_deleted, inplace=True)
     reddit_com.drop(index_removed, inplace=True)
+    print("Finished data cleaning")
     # Text process
     reddit_com['processed'] = reddit_com['content'].apply(text_process)
+    print("text process done on reddit comments")
+    print("writing it to a csv file")
+    reddit_com.to_csv("data/02_processed/direct/reddit_comments_processed_new.csv", line_terminator='\r\n')
+    '''
     # Compute sentiment
+    reddit_com = pd.read_csv("data/02_processed/direct/reddit_comments_processed.csv", error_bad_lines=False)
     reddit_com['CL sentiment'] = reddit_com['processed'].apply(sentiment)
+    print("Sentiment applied on reddit comments")
     # Compute average sentiment of each day
     reddit_com_sent = reddit_com.groupby('date')['CL sentiment'].mean()
+    print("Compute average sentiment of each day")
     # Count messages of each day
     reddit_com_vol = reddit_com.groupby('date')['id'].count()
     reddit_com_vol = reddit_com_vol.rename('volume')
@@ -86,3 +97,4 @@ if __name__ == '__main__':
         "data/02_processed/direct/reddit_comments_sentiment.csv")
     reddit_com_vol.to_csv(
         "data/02_processed/direct/reddit_comments_volume.csv")
+    '''
