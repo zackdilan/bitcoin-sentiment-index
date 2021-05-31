@@ -1,6 +1,7 @@
 # notebook used for proofing
 notebooks
-
+# add few exceptional notebooks
+!notebooks/Machine Learning/Random-Forest-Regressor-Classifier.ipynb
 # resource
 resources
 
