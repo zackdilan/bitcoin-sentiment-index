@@ -17,3 +17,16 @@
 |Comments Volume | Daily comment  volume on Reddit | reddit Pushfit api
 
 
+```bash
+
+
+
+├─ data                      
+│  ├─ 00_external            <- Contain rules for sentiment analysis & text processing
+│  ├─ 01_raw                 <- Immutable text messages retrieved from stockTwits/reddit
+│  └─ 02_processed           <- Data used to developed models
+│     ├─ direct              <- Direct sentiment indicators
+│     ├─ indirect            <- Indirect sentiment indicators
+│     ├─ crix.json           <- Target variable
+│     └─ final_dataset.csv
+

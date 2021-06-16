@@ -1,7 +1,8 @@
 # notebook used for proofing
 notebooks
-# add few exceptional notebooks
-!notebooks/Machine Learning/Random-Forest-Regressor-Classifier.ipynb
+# add few exceptional notebooks and related data
+!notebooks/Machine Learning/trading_strategy_1.ipynb
+!notebooks/Machine Learning/Bitcoin_Signal_test_data.csv
 # resource
 resources
 
