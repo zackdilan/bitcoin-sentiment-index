@@ -1,6 +1,6 @@
 # Bitcoin trading strategy based on Investors Sentiment
 
-##Project Description
+## Project Description
 
 #### Objective
 Study whether several measures of investor sentiment in the Bitcoin market
