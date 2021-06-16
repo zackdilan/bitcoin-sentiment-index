@@ -69,7 +69,7 @@ Please check repo_root/src/process/README.md
 
 
 #### ML approaches and Trading strategy
-#####Case Study : 1
+##### Case Study : 1
 
 1. Machine learning case study over Market returns(RM) as the dependant variables 
 and sentiment data as the independent variables.
