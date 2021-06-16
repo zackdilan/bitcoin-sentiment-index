@@ -83,7 +83,7 @@ for validation.
 
       ![title](docs/images/trading_starteg_1.png)
 
-#####Results
+##### Results
 * Random Forest Regressor    
 
     * Accuracy : 61.39%
