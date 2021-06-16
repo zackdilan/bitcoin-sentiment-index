@@ -1,6 +1,6 @@
 # Bitcoin trading strategy based on Investors Sentiment
 
-##Project Description
+## Project Description
 
 #### Objective
 Study whether several measures of investor sentiment in the Bitcoin market
@@ -69,7 +69,7 @@ Please check repo_root/src/process/README.md
 
 
 #### ML approaches and Trading strategy
-#####Case Study : 1
+##### Case Study : 1
 
 1. Machine learning case study over Market returns(RM) as the dependant variables 
 and sentiment data as the independent variables.
@@ -83,7 +83,7 @@ for validation.
 
       ![title](docs/images/trading_starteg_1.png)
 
-#####Results
+##### Results
 * Random Forest Regressor    
 
     * Accuracy : 61.39%
