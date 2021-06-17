@@ -82,6 +82,8 @@ for validation.
 6. Then a trading strategy is developed: 
 
       ![title](docs/images/trading_starteg_1.png)
+    
+Please checkout the jupyter notebook section for implementing this case study /repo_root/notebooks/Machine Learning/trading_strategy_1.ipynb
 
 ##### Results
 * Random Forest Regressor    
